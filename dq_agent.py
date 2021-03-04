@@ -9,12 +9,13 @@ import torch.nn.functional as F
 import torch.optim as optim
               
 # hyperparameter values from the DQN paper
-BUFFER_SIZE = int(1e5)  # replay buffer size
-BATCH_SIZE = 64         # minibatch size
+BUFFER_SIZE = int(1e6)  # replay buffer size
+BATCH_SIZE = 256       # minibatch size
 GAMMA = 0.99            # discount factor
-TAU = 1e-3              # for soft update of target parameters
-LR = 5e-4               # learning rate 
+TAU = 5e-3              # for soft update of target parameters
+LR = 1e-3              # learning rate
 UPDATE_EVERY = 4        # how often to update the network
+
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 class Agent():
@@ -86,7 +87,7 @@ class Agent():
         states, actions, rewards, next_states, dones = experiences
         ## TODO: compute and minimize the loss
         "*** YOUR CODE HERE ***"
-        Q_targets_next = self.qnetwork_target(next_states)
+        Q_targets_next = self.qnetwork_target(next_states).detach().max(1)[0].unsqueeze(1)
         Q_targets = rewards + (gamma * Q_targets_next * (1 - dones))
         
         Q_expected = self.qnetwork_local(states).gather(1, actions)
