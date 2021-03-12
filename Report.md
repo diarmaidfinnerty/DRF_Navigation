@@ -35,9 +35,10 @@ The neural network had:
 
 ## Training Rewards
 
-![Plot of Rewards](TrainingRewardsPlot.png 'Plot of rewards over time')
-
-![Training Rewards By Episode](TrainingRewards.png 'Plot of during Training')
+#### Rewards plot
+![Plot of Rewards](TrainingRewardsPlot.png)
+#### Reward progression during training. 
+![Training Rewards By Episode](TrainingRewards.png)
 
 
 ## Future Work
@@ -45,10 +46,10 @@ The agent could be improved by utilising a different learning algorithm.
 
 Examples of possible algorithms are:
 
-    - `Dueling DQN Network`
-    - `Double DQN Network`
+    - Dueling DQN Network
+    - Double DQN Network
     
 As well as using an improved memory method such as:
 
-    - `Prioritized Memory`
+    - Prioritized Memory
 
