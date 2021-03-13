@@ -6,7 +6,7 @@ For details on the nature of the environment see README.md
 
 ## Algorithm
 
-The agent was trained used a `Deep Q-Network` along with a `Replay Buffer` implementation. This was sufficient to solve the environment in 972 episodes. 
+The agent was trained used a `Deep Q-Network` along with a `Replay Buffer` implementation. This was sufficient to solve the environment in 1072 episodes. 
 
 ### Hyper Parameters  
 
