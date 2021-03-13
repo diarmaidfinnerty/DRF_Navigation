@@ -15,6 +15,12 @@ Four discrete actions are available, corresponding to:
 
 The task is episodic, and in order to solve the environment, the agent must get an average score of +13 over 100 consecutive episodes.
 
+## Installation
+In order to run these scripts you will require
+1. Follow instructions from this [link](https://github.com/udacity/deep-reinforcement-learning#dependencies) to ensure all dependencies are installed. 
+2. Ensure that you execute *_cell 1_* of the `Naviagation.ipynb` notebook. `pip -q install ./python`.
+
+
 ## Setup
 # Download the Unity Environment
 For this project, you will not need to install Unity - this is because we have already built the environment for you, and you can download it from one of the links below. You need only select the environment that matches your operating system:
