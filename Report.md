@@ -24,6 +24,19 @@ LR = 1e-3               # learning rate
 UPDATE_EVERY = 4        # how often to update the network
 ```
 
+## Learning Algorithm 
+The `Agent` is trained using the DQN training helper function in the `Naviation.ipynb`. The training happens in an episodic manner until the environment is natually solved or maximum number of epsiodes are completed. The environment is considered solved when the average reward over 100 episodes is at least +13.
+Each episode considers until the enviornment naturally completes.A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.
+
+- The `DQN` selects an action using an epsilon-greedy policy after receiving the state input from the environment. 
+- At the beginning, the value of epsilon is 1 or close to 1, so the initial actions take by the agent are randomly selected. 
+- The `DQN` agent observes the new state and identifies the reward recieved from the action taken. 
+- The agent then adds the `(state, action, reward, next_state, done)` to the ReplayBuffer which is a memory buffer to store the experiences. 
+- After `UPDATE_EVERY` time steps, a `BATCH_SIZE ` set of experiences  are sampled from the ReplayBuffer. 
+- The agent then uses this sample of experiences to learn from. 
+- The target is idetified by using the `qnetwork_target`, `MSE` loss is used to measure the error between the output of the `qnetwork_target` and the `qnetwork_local`
+- The `qnetwork_target` is then soft updated using `θ_target = τ*θ_local + (1 - τ)*θ_target` formula.  
+
 ### Neural Network
 The [QNetwork model](https://github.com/diarmaidfinnerty/DRF_Navigation/blob/main/model.py) consisted of a simple feedforward neural network containing a single hidden layer. 
 
@@ -39,7 +52,6 @@ The neural network had:
 ![Plot of Rewards](TrainingRewardsPlot.png)
 #### Reward progression during training. 
 ![Training Rewards By Episode](TrainingRewards.png)
-
 
 ## Future Work
 The agent could be improved by utilising a different learning algorithm. 
